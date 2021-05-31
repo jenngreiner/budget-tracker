@@ -21,16 +21,15 @@ req.onsuccess = ({ target }) => {
   }
 };
 
-req.onerror = function(e) {
+req.onerror = function (e) {
   console.log("Woops! " + e.target.errorCode);
 };
 
-
-function savePost(post) {
+function saveRecord(record) {
   const transaction = db.transaction(["pending"], "readwrite");
   const store = transaction.objectStore("pending");
 
-  store.add(post);
+  store.add(record);
 }
 
 function checkDatabase() {
@@ -38,25 +37,25 @@ function checkDatabase() {
   const store = transaction.objectStore("pending");
   const allTransactions = store.getAll();
 
-  allTransactions.onsuccess = function() {
+  allTransactions.onsuccess = function () {
     if (allTransactions.result.length > 0) {
       fetch("/api/transaction/bulk", {
         method: "POST",
         body: JSON.stringify(allTransactions.result),
         headers: {
           Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       })
-      .then(response => {        
-        return response.json();
-      })
-      .then(() => {
-        // delete records if successful
-        const transaction = db.transaction(["pending"], "readwrite");
-        const store = transaction.objectStore("pending");
-        store.clear();
-      });
+        .then((response) => {
+          return response.json();
+        })
+        .then(() => {
+          // delete records if successful
+          const transaction = db.transaction(["pending"], "readwrite");
+          const store = transaction.objectStore("pending");
+          store.clear();
+        });
     }
   };
 }
