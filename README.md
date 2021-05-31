@@ -11,7 +11,7 @@
 
 
 ## Deployed Site
-[Production Link](https://jenngreiner.github.io/)
+[Production Link](https://agile-taiga-95564.herokuapp.com/)
 
 
 ## User Story
@@ -21,7 +21,7 @@ As an avid traveller, I want to be able to track my withdrawals and deposits wit
 The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
 
 ## Usage
-Open the [Budget Tracker](https://jenngreiner.github.io/Work-Day-Scheduler-homework5/) in your browser. All previously added transaction will be displayed in the table and chart on the screen. Enter a transaction name and amount, then click Add or Subtract to update the budget tracker. Transactions posted while your device is offline will still be stored in the app. 
+Open the [Budget Tracker](https://agile-taiga-95564.herokuapp.com/) in your browser. All previously added transaction will be displayed in the table and chart on the screen. Enter a transaction name and amount, then click Add or Subtract to update the budget tracker. Transactions posted while your device is offline will still be stored in the app. 
 
 
 ## Installation
